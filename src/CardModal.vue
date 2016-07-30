@@ -7,6 +7,7 @@
         <button class="delete" @click="close"></button>
       </header>
       <section class="modal-card-body">
+        <partial v-if="partialBody" name="card-body"></partial>
         <slot></slot>
       </section>
       <footer class="modal-card-foot">
@@ -24,6 +25,10 @@ export default {
   mixins: [BaseModal],
 
   props: {
+    partialBody: {
+      type: Boolean,
+      default: false
+    },
     title: {
       type: String
     },
